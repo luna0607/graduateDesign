@@ -46,11 +46,6 @@ const asideMenuConfig = [
     icon: 'shopcar',
   },
   {
-    name: '库存盘点',
-    path: '/chargeback',
-    icon: 'cascades',
-  },
-  {
     name: '进货管理',
     path: '/dispatch',
     icon: 'clock',

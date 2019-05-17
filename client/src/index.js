@@ -9,6 +9,7 @@ import zhCN from 'antd/lib/locale-provider/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import "antd/dist/antd.css";
+import axios from 'axios'
 
 const ICE_CONTAINER = document.getElementById('ice-container');
 
