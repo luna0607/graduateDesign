@@ -11,6 +11,7 @@ import Goods from './pages/GoodsList';
 import AddOrder from './pages/AddOrder';
 import CustomerList from './pages/CustomerList';
 import SuplyerList from './pages/SuplyerList';
+import Report from './pages/Report'
 
 const routerConfig = [
   {
@@ -24,6 +25,10 @@ const routerConfig = [
   {
     path: '/dashboard',
     component: Dashboard,
+  },
+  {
+    path: '/report',
+    component: Report,
   },
   {
     path: '/order/list',

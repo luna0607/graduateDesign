@@ -3,20 +3,6 @@
 // asideMenuConfig：侧边导航配置
 
 const headerMenuConfig = [
-  // {
-  //   name: '反馈',
-  //   path: 'https://github.com/alibaba/ice',
-  //   external: true,
-  //   newWindow: true,
-  //   icon: 'message',
-  // },
-  // {
-  //   name: '帮助',
-  //   path: 'https://alibaba.github.io/ice',
-  //   external: true,
-  //   newWindow: true,
-  //   icon: 'bangzhu',
-  // },
   {
     name: '退出',
     path: '/user/login',
@@ -31,8 +17,8 @@ const asideMenuConfig = [
     icon: 'home2',
   },
   {
-    name: '订单报表',
-    path: '/order/report',
+    name: '数据统计',
+    path: '/report',
     icon: 'chart',
   },
   {
