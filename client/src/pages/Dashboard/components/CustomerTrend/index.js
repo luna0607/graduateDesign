@@ -4,6 +4,13 @@ import { Chart, Geom, Axis, Tooltip } from 'bizcharts';
 import ContainerTitle from '../../../../components/ContainerTitle';
 
 export default class OrderCate extends Component {
+
+  fetchData = () => {
+    return new Promise((resolve) => {
+      
+    })
+  }
+
   render() {
     const data = [
       { month: '1', customer: 38 },

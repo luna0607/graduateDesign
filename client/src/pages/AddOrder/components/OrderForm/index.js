@@ -8,6 +8,7 @@ import {
   FormError as IceFormError,
 } from '@icedesign/form-binder';
 import PageHead from '../../../../components/PageHead';
+import axios from 'axios'
 
 export default class OrderForm extends Component {
   state = {
@@ -23,7 +24,8 @@ export default class OrderForm extends Component {
       if (errors) {
         return;
       }
-      console.log({ values });
+      // console.log({ values });
+      axios.post('/IMS/sale/add',values)
       Message.success('提交成功');
     });
   };
