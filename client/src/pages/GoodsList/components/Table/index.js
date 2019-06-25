@@ -4,38 +4,6 @@ import {Table,Form} from 'antd';
 import axios from 'axios'
 
 
-// Random Numbers
-const random = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
-const expandedRowRender = () => {
-  const columns = childrenColumns;
-  const data = [];
-  for (let i = 0; i < 3; ++i) {
-    data.push({
-      index: i,
-      date: '2014-12-24 23:12:00',
-      name: ['羽毛球', '乒乓球'][random(0, 1)],
-      brand: ['李宁', '阿迪达斯', '耐克'][random(0, 1)],
-      danwei: ['12只', '6只'][random(0, 1)],
-      categary: ['运动', '休闲'][random(0, 1)],
-      size: ['一筒', ''][random(0, 1)],
-      weight: ['1kg', '0.5kg'][random(0, 1)],
-      price: ['99.5', '29.5'][random(0, 1)],
-      note: '',
-    });
-  }
-
-
-  return (
-    <Table
-      columns={columns}
-      dataSource={data}
-      pagination={false}
-    />
-  );
-};
-
 let columns= [
   {
       title: '商品编号',
@@ -140,6 +108,17 @@ let filterData=[
 }
 ]
 
+let addData=(good)=>{
+ 
+  return new Promise((resolve)=>{
+    console.log('goodssssssss')
+    console.log(good)
+    resolve('ok')
+    axios.post('/IMS/goods/add',{}).then(function(response){
+      console.log(response)
+    });
+  })
+}
 
 export default class TableView extends Component {
 
@@ -148,7 +127,12 @@ export default class TableView extends Component {
       axios.get('/IMS/goods/')
       .then(function (response) {
         console.log( response.data.data)
-        resolve(response.data.data)
+        let result=[];
+        for(let tmp of response.data.data){
+          tmp.key=tmp.goodsId;
+          result.push(tmp)
+        }
+        resolve(result)
         //resolve [{index:1,buyerId:"124343",buyerName:"yinywf",contact:"15996262601"}];
       })
       .catch(function (error) {
@@ -158,11 +142,13 @@ export default class TableView extends Component {
   };
 
 
+
+
   render() {
     const EditableFormTable = Form.create()(EditableTable);    
   return (
       <div>
-        <EditableFormTable filterData={filterData} fetchData={this.fetchData}  columns={columns}  />
+        <EditableFormTable addData={addData} filterData={filterData} fetchData={this.fetchData}  columns={columns}  />
       </div>
     );
   }

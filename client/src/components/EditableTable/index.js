@@ -132,10 +132,13 @@ export default class EditableTable extends React.Component {
         })
     }
 
-    handleFilterChange = () => {
-        this.props.fetchData(5).then((res) => {
-            this.setState({ data: res })
+    handleFilterChange = (good) => {
+        this.props.addData(good).then(()=>{
+            this.props.fetchData(5).then((res) => {
+                this.setState({ data: res })
+            })
         })
+     
     };
 
     isEditing = record => record.key === this.state.editingKey;

@@ -2,82 +2,83 @@ import React, { Component } from 'react';
 import EditableTable from '../../../../components/EditableTable/index'
 import {Table,Form} from 'antd';
 
-// Random Numbers
+// // Random Numbers
 const random = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
-const expandedRowRender = () => {
-  const columns = childrenColumns;
-  const data = [];
-  for (let i = 0; i < 3; ++i) {
-    data.push({
-      index: i,
-      date: '2014-12-24 23:12:00',
-      name: ['羽毛球', '乒乓球'][random(0, 1)],
-      brand: ['李宁', '阿迪达斯', '耐克'][random(0, 1)],
-      danwei: ['12只', '6只'][random(0, 1)],
-      categary: ['运动', '休闲'][random(0, 1)],
-      size: ['一筒', ''][random(0, 1)],
-      weight: ['1kg', '0.5kg'][random(0, 1)],
-      prize: ['99.5', '29.5'][random(0, 1)],
-      note: '',
-    });
-  }
-  return (
-    <Table
-      columns={columns}
-      dataSource={data}
-      pagination={false}
-    />
-  );
-};
+// const expandedRowRender = () => {
+//   const columns = childrenColumns;
+//   const data = [];
+//   for (let i = 0; i < 3; ++i) {
+//     data.push({
+//       index: i,
+//       key:i+1,
+//       date: '2014-12-24 23:12:00',
+//       name: ['羽毛球', '乒乓球'][random(0, 1)],
+//       brand: ['李宁', '阿迪达斯', '耐克'][random(0, 1)],
+//       danwei: ['12只', '6只'][random(0, 1)],
+//       categary: ['运动', '休闲'][random(0, 1)],
+//       size: ['一筒', ''][random(0, 1)],
+//       weight: ['1kg', '0.5kg'][random(0, 1)],
+//       prize: ['99.5', '29.5'][random(0, 1)],
+//       note: '',
+//     });
+//   }
+//   return (
+//     <Table
+//       columns={columns}
+//       dataSource={data}
+//       pagination={false}
+//     />
+//   );
+// };
 
-let childrenColumns = [
-  { title: '历史纪录', dataIndex: 'index', key: 'index' },
-  { title: '操作日期', dataIndex: 'date', key: 'date' },
-  {
-    title: '商品编号',
-    dataIndex: 'key',
-    width: '5%',
-    editable: false,
-},
-{
-    title: '商品名称',
-    dataIndex: 'name',
-    width: '10%',
-    editable: true,
-},
-{
-    title: '单价',
-    dataIndex: 'price',
-    width: '10%',
-    editable: true,
-},
-{
-    title: '总额',
-    dataIndex: 'totalPrice',
-    width: '10%',
-    editable: true,
-},
-{
-    title: '税',
-    dataIndex: 'tax',
-    width: '10%',
-    editable: true,
-},
-{
-    title: '进货商',
-    dataIndex: 'danwei',
-    width: '7%',
-    editable: true,
-},
-{
-    title: '备注',
-    dataIndex: 'note',
-    width: '15%',
-    editable: true,
-}
-];
+// let childrenColumns = [
+//   { title: '历史纪录', dataIndex: 'index', key: 'index' },
+//   { title: '操作日期', dataIndex: 'date', key: 'date' },
+//   {
+//     title: '商品编号',
+//     dataIndex: 'key',
+//     width: '5%',
+//     editable: false,
+// },
+// {
+//     title: '商品名称',
+//     dataIndex: 'name',
+//     width: '10%',
+//     editable: true,
+// },
+// {
+//     title: '单价',
+//     dataIndex: 'price',
+//     width: '10%',
+//     editable: true,
+// },
+// {
+//     title: '总额',
+//     dataIndex: 'totalPrice',
+//     width: '10%',
+//     editable: true,
+// },
+// {
+//     title: '税',
+//     dataIndex: 'tax',
+//     width: '10%',
+//     editable: true,
+// },
+// {
+//     title: '进货商',
+//     dataIndex: 'danwei',
+//     width: '7%',
+//     editable: true,
+// },
+// {
+//     title: '备注',
+//     dataIndex: 'note',
+//     width: '15%',
+//     editable: true,
+// }
+// ];
 
 let columns= [
   {
@@ -227,7 +228,7 @@ export default class TableView extends Component {
     const EditableFormTable = Form.create()(EditableTable);    
   return (
       <div>
-        <EditableFormTable filterData={filterData} fetchData={this.fetchData} expandedRowRender={expandedRowRender} columns={columns} childrenColumns={childrenColumns} />
+        <EditableFormTable filterData={filterData} fetchData={this.fetchData} columns={columns} />
       </div>
     );
   }

@@ -23,13 +23,16 @@ export default class Filter extends Component {
     render() {
         let doms = []
         let filterData = this.props.filterData;
+        console.log("okkkkkkkkkk")
+        console.log(filterData)
         for (let item of filterData) {
+
             if (item.type === 'input') {
                 doms.push(<Col>
                     <div style={styles.formItem}>
                         <span style={styles.formLabel}>{item.name}</span>
                         <IceFormBinder triggerType="onBlur" name="name">
-                            <Input placeholder="请输入" style={{ width: '200px' }} />
+                            <Input placeholder="请输入" style={{ width: '200px' }} value={this.state.value[item.dataIndex]} />
                         </IceFormBinder>
                         <div style={styles.formError}>
                             <IceFormError name="name" />
@@ -47,7 +50,7 @@ export default class Filter extends Component {
                         <div style={styles.formItem}>
                             <span style={styles.formLabel}>{item.name}</span>
                             <IceFormBinder triggerType="onBlur" name="cate">
-                                <Select style={{ width: '200px' }}>
+                                <Select style={{ width: '200px' }} value={this.state.value[item.dataIndex]}>
                                     {optionDom}
                                 </Select>
                             </IceFormBinder>
@@ -63,7 +66,7 @@ export default class Filter extends Component {
                   <div style={styles.formItem}>
                     <span style={styles.formLabel}>{item.name}</span>
                     <IceFormBinder triggerType="onBlur" name="dispatchTime">
-                      <RangePicker placeholder="请输入" style={{ width: '240px' }} />
+                      <RangePicker placeholder="请输入" style={{ width: '240px' }} value={this.state.value[item.dataIndex]}/>
                     </IceFormBinder>
                     <div style={styles.formError}>
                       <IceFormError name="dispatchTime" />
@@ -82,7 +85,7 @@ export default class Filter extends Component {
                 {doms}
                 <Col >
                         <div style={styles.formItem}>
-                        <Button type="primary" onClick={this.props.onClick}>添加</Button>
+                        <Button type="primary" onClick={this.props.onClick.bind(null,this.state.value)}>添加</Button>
                         </div>
                     </Col>
                 </Row>
