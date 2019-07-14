@@ -31,11 +31,11 @@ export default class Filter extends Component {
                 doms.push(<Col>
                     <div style={styles.formItem}>
                         <span style={styles.formLabel}>{item.name}</span>
-                        <IceFormBinder triggerType="onBlur" name="name">
+                        <IceFormBinder triggerType="onBlur" name={item.dataIndex}>
                             <Input placeholder="请输入" style={{ width: '200px' }} value={this.state.value[item.dataIndex]} />
                         </IceFormBinder>
                         <div style={styles.formError}>
-                            <IceFormError name="name" />
+                            <IceFormError name={item.dataIndex} />
                         </div>
                     </div>
                 </Col>)
@@ -49,13 +49,13 @@ export default class Filter extends Component {
                     <Col >
                         <div style={styles.formItem}>
                             <span style={styles.formLabel}>{item.name}</span>
-                            <IceFormBinder triggerType="onBlur" name="cate">
+                            <IceFormBinder triggerType="onBlur" name={item.dataIndex}>
                                 <Select style={{ width: '200px' }} value={this.state.value[item.dataIndex]}>
                                     {optionDom}
                                 </Select>
                             </IceFormBinder>
                             <div style={styles.formError}>
-                                <IceFormError name="cate" />
+                                <IceFormError name={item.dataIndex}/>
                             </div>
                         </div>
                     </Col>
@@ -65,11 +65,11 @@ export default class Filter extends Component {
                 doms.push( <Col >
                   <div style={styles.formItem}>
                     <span style={styles.formLabel}>{item.name}</span>
-                    <IceFormBinder triggerType="onBlur" name="dispatchTime">
+                    <IceFormBinder triggerType="onBlur" name={item.dataIndex}>
                       <RangePicker placeholder="请输入" style={{ width: '240px' }} value={this.state.value[item.dataIndex]}/>
                     </IceFormBinder>
                     <div style={styles.formError}>
-                      <IceFormError name="dispatchTime" />
+                      <IceFormError name={item.dataIndex} />
                     </div>
                   </div>
                 </Col>)

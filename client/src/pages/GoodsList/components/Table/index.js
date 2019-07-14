@@ -30,7 +30,7 @@ let columns= [
       editable: true,
   },
   {
-      title: '型号',
+      title: '规格',
       dataIndex: 'size',
       width: '10%',
       editable: true,
@@ -53,6 +53,18 @@ let columns= [
       width: '10%',
       editable: true,
   },
+  {
+    title: '材料',
+    dataIndex: 'material',
+    width: '5%',
+    editable: true,
+},
+{
+  title: '型号',
+  dataIndex: 'model',
+  width: '5%',
+  editable: true,
+},
   {
       title: '备注',
       dataIndex: 'note',
@@ -82,9 +94,19 @@ let filterData=[
     type:'input'
 },
 {
-    name: '型号',
+    name: '规格',
     dataIndex: 'size',
     type:'input'
+},
+{
+  name: '材料',
+  dataIndex: 'material',
+  type:'input'
+},
+{
+  name: '型号',
+  dataIndex: 'model',
+  type:'input'
 },
 {
     name: '单位',
@@ -109,13 +131,15 @@ let filterData=[
 ]
 
 let addData=(good)=>{
- 
-  return new Promise((resolve)=>{
-    console.log('goodssssssss')
-    console.log(good)
-    resolve('ok')
-    axios.post('/IMS/goods/add',{}).then(function(response){
+  return new Promise((resolve,reject)=>{
+    axios.post('/IMS/goods/add',good).then(function(response){
       console.log(response)
+      if(response.data.code==1){
+        alert(response.data.msg);
+        reject()
+      }else{
+        resolve(response)
+      }
     });
   })
 }
