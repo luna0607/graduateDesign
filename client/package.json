@@ -23,7 +23,7 @@
     "@icedesign/layout": "^1.x",
     "@icedesign/theme": "^1.x",
     "antd": "^3.16.5",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bizcharts": "^3.2.2",
     "enquire-js": "^0.1.2",
     "moment": "^2.24.0",
