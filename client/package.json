@@ -28,7 +28,7 @@
     "enquire-js": "^0.1.2",
     "moment": "^2.24.0",
     "namor": "^1.1.2",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.5.8",
     "react": "^16.2.0",
     "react-dom": "^16.4.1",
